@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>menentukan nilai akhir</title>
+    <style>
+        body{
+            background-color: yellow;
+            display: flex;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+        form{
+            background-color: white;
+            padding: 30px;
+            border: 5px solid blue;
+            border-radius: 26px;
+        }
+        tr{
+            height: 30px;
+        }
+        button[type=button]{
+            background-color: green;
+            color: white;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+        }
+        button[type=button]:hover{
+            background-color: maroon;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <table>
+            <tr>
+                <td>input nilai tugas</td>
+                <td><input type="number" id="idtugas"></td>
+            </tr>
+            <tr>
+                <td>input nilai uts</td>
+                <td><input type="number" id="iduts"></td>
+            </tr>
+            <tr>
+                <td>input nilai uas</td>
+                <td><input type="number" id="iduas"></td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="fproses();">nilai akhir</button></td>
+                <td><input type="text" id="idhasil"></td>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="fnh();">nilai huruf</button></td>
+                <td><input type="text" id="idnh"></td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        function fnh()
+        {
+            var na,nh;
+            na=document.getElementById('idhasil').value;
+            if(na>85)
+            nh='A';
+            else if(na>80 && na<=85)
+            nh='B+';
+            else if(na>75 && na<=80)
+            nh='B';
+            else if(na>70 && na<=75)
+            nh='C+';
+            else if(na>65 && na<=70)
+            nh='C';
+            else if(na>60 && na<=65)
+            nh='D';
+            else
+            nh='E';
+            document.getElementById('idnh').value=nh;
+        }
+        function fproses()
+        {
+            var nt,nuts,nuas;
+            nt=document.getElementById('idtugas').value;
+            nuts=document.getElementById('iduts').value;
+            nuas=document.getElementById('iduas').value;
+            na=(2*nt+3*nuts+5*nuas)/10;
+            document.getElementById('idhasil').value=na;
+        }       
+    </script>
+</body>
+</html>
